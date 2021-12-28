@@ -44,3 +44,8 @@ require('apostrophe')({
 ```
 
 ### Additional usage sections
+
+### Pre-release checks
+
+- [ ] If the module does not include CSS, remove the Stylelint config file and dependency.
+- [ ] If any template includes a script with inline code, include the `nonce` attribute set like this: `<script nonce="{{ nonce }}">`.
