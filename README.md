@@ -50,5 +50,6 @@ require('apostrophe')({
 - [ ] If the module does not include CSS, remove the Stylelint config file and dependency `npm remove --save-dev stylelint stylelint-config-apostrophe`
 - [ ] If the module does not include any Vue.js components, remove 
   - [ ] set in `package.json`, `"eslint": "eslint .",`
-  - [ ] remove Vue.js packages `npm remove --save eslint-plugin-vue vue-eslint-parser`
+  - [ ] remove Vue.js packages `npm remove --save-dev eslint-plugin-vue vue-eslint-parser`
+- [ ] If the module does not contains any tests, remove mocha `npm remove --save-dev mocha`
 - [ ] If any template includes a script with inline code, include the `nonce` attribute set like this: `<script nonce="{{ nonce }}">`.
