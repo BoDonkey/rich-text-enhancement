@@ -52,4 +52,5 @@ require('apostrophe')({
   - [ ] set in `package.json`, `"eslint": "eslint .",`
   - [ ] remove Vue.js packages `npm remove --save-dev eslint-plugin-vue vue-eslint-parser`
 - [ ] If the module does not contains any tests, remove mocha `npm remove --save-dev mocha`
+- [ ] If this file contains images, please use public static endpoint to load the images.
 - [ ] If any template includes a script with inline code, include the `nonce` attribute set like this: `<script nonce="{{ nonce }}">`.
