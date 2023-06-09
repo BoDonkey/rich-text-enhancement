@@ -4,8 +4,8 @@
   "description": "A template for creating an ApostropheCMS 3 module.",
   "main": "index.js",
   "scripts": {
-    "lint": "npm run eslint",
     "eslint": "eslint --ext .js,.vue .",
+    "lint": "npm run eslint",
     "test": "npm run lint"
   },
   "repository": {
@@ -16,14 +16,14 @@
   "author": "Apostrophe Technologies",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^7.9.0",
-    "eslint-config-apostrophe": "^3.4.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint": "^8.42.0",
+    "eslint-config-apostrophe": "github:apostrophecms/eslint-config-apostrophe",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "stylelint": "^13.7.1",
-    "stylelint-config-apostrophe": "^1.0.0"
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "stylelint": "^15.7.0",
+    "stylelint-config-apostrophe": "^2.0.0"
   }
 }
