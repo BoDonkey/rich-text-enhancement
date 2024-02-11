@@ -1,7 +1,7 @@
 {
-  "name": "@apostrophecms/module-template",
+  "name": "embed-extension",
   "version": "1.0.0",
-  "description": "A template for creating an ApostropheCMS 3 module.",
+  "description": "An extension for adding a non-video oembed widget to ApostropheCMS",
   "main": "index.js",
   "scripts": {
     "eslint": "eslint --ext .js,.vue .",
