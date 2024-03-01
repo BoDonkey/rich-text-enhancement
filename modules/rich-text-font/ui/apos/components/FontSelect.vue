@@ -62,7 +62,6 @@ export default {
   },
   computed: {
     active() {
-      console.log(this.options.fonts);
       const fonts = this.options.fonts || [];
       for (let i = 0; (i < fonts.length); i++) {
         const font = fonts[i];

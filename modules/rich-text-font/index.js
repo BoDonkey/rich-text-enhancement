@@ -27,7 +27,6 @@ module.exports = {
       },
       optionsToSanitizeHtml(_super, options) {
         const superResult = _super(options);
-        console.log('🎨', superResult);
         if (!superResult.allowedStyles['*']) {
           superResult.allowedStyles['*'] = {};
         }

@@ -27,7 +27,6 @@ module.exports = {
       },
       optionsToSanitizeHtml(_super, options) {
         const superResult = _super(options);
-        console.log('🎨', superResult);
         if (!superResult.allowedStyles['*']) {
           superResult.allowedStyles['*'] = {};
         }
@@ -38,7 +37,6 @@ module.exports = {
         if (!superResult.allowedAttributes['*'].includes('class')) {
           superResult.allowedAttributes['*'].push('class');
         }
-        console.log('🎨 plus', superResult);
         return superResult;
       }
     };
