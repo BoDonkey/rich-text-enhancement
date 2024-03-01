@@ -1,5 +1,3 @@
-**TODO:** Update the badge URLs for the new module's repo.
-
 <div align="center">
   <img src="https://raw.githubusercontent.com/apostrophecms/apostrophe/main/logo.svg" alt="ApostropheCMS logo" width="80" height="80">
 
@@ -31,7 +29,7 @@ Add the bundle and individual extensions in the `app.js` file:
 ```javascript
 require('apostrophe')({
   shortName: 'my-project',
-  bundle: [ 'rich-text-enhancement' ],
+  bundle: [ '@bodonkey/rich-text-enhancement' ],
   modules: {
     'rich-text-color': {},
     'rich-text-font': {}
