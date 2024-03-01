@@ -127,3 +127,4 @@ fields: {
     }
 //...
 ```
+![Screenshot of the two new enhancements added to the Rich Text Widget toolbar.](./images/screenshot.png)
