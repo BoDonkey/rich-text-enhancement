@@ -20,9 +20,8 @@ This bundle of two extensions is designed as a temporary workaround to add color
 
 To install the module, use the command line to run this command in an Apostrophe project's root directory:
 
-```
-// TBD
-npm install 
+``` bash
+npm install @bodonkey/rich-text-enhancement
 ```
 
 ## Usage
@@ -43,7 +42,7 @@ require('apostrophe')({
 These enhancements can then be added to the project-wide or individual area rich-text-widget options.
 
 Per-area example:
-```
+``` javascript
 //...
 fields: {
     add: {
@@ -127,4 +126,5 @@ fields: {
     }
 //...
 ```
+
 ![Screenshot of the two new enhancements added to the Rich Text Widget toolbar.](./images/screenshot.png)

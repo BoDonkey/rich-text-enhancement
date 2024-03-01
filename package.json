@@ -1,7 +1,7 @@
 {
   "name": "rich-text-enhancement",
   "version": "1.0.0",
-  "description": "A set of temporary extensions to add functionality to the rich-text-editor.",
+  "description": "A set of extensions to add functionality to the rich-text-editor.",
   "main": "index.js",
   "scripts": {
     "eslint": "eslint --ext .js,.vue .",
@@ -16,7 +16,7 @@
   "author": "Apostrophe Technologies",
   "license": "MIT",
   "devDependencies": {
-    "apostrophe": "github:apostrophecms/apostrophe",
+    "apostrophe": "^3.60.0",
     "eslint": "^8.55.0",
     "eslint-config-apostrophe": "^4.2.0",
     "eslint-config-standard": "^17.1.0",
