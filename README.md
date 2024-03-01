@@ -14,7 +14,7 @@
   </p>
 </div>
 
-This bundle of two extensions is designed as a temporary workaround to add colors and fonts to text in the rich text editor. This should only be needed until the existing widget is patched and/or extended.
+This bundle of two extensions for adding colors and fonts to text in the rich text editor.
 
 ## Installation
 
