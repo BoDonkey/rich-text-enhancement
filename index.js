@@ -1,17 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-
 module.exports = {
   bundle: {
     directory: 'modules',
-    modules: getBundleModuleNames()
+    modules: [ 'rich-text-color', 'rich-text-font' ]
+  },
+  init(self) {
+    console.log('👋 from the rich text widget enhancement!');
   }
 };
-
-function getBundleModuleNames() {
-  const source = path.join(__dirname, './modules/@apostrophecms');
-  return fs
-    .readdirSync(source, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => `@apostrophecms/${dirent.name}`);
-}
