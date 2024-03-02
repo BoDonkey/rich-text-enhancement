@@ -30,7 +30,7 @@ module.exports = {
         if (!superResult.allowedStyles['*']) {
           superResult.allowedStyles['*'] = {};
         }
-        superResult.allowedStyles['*'].color = [ /.+/ ];
+        superResult.allowedStyles['*'].color = [ /^#(0x)?[0-9a-f]+$/i, /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/ ];
         if (!superResult.allowedAttributes['*']) {
           superResult.allowedAttributes['*'] = {};
         }
