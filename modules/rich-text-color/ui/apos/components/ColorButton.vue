@@ -2,7 +2,19 @@
   <input
     type="color"
     :value="editor.getAttributes('textStyle').color"
-    @input="editor.chain().focus().setColor($event.target.value).run()"
+    class="apos-rich-text-editor__control"
+    :class="{ 'apos-is-active': active }"
+    :label="tool.label"
+    :icon-only="!!tool.icon"
+    :icon="tool.icon || false"
+    :icon-size="tool.iconSize || 16"
+    :modifiers="['no-border', 'no-motion']"
+    :tooltip="{
+      content: tool.label,
+      placement: 'top',
+      delay: 650
+    }"
+    @input="handleColorChange"
   >
 </template>
 
@@ -34,6 +46,16 @@ export default {
       } else {
         return this.editor.isActive(this.name, this.tool.commandParameters || {});
       }
+    }
+  },
+  methods: {
+    command() {
+      // This will return the command associated with the tool or the name as a fallback
+      return this.tool.command || this.name;
+    },
+    handleColorChange(value) {
+      console.log('handleColorChange', this.command(), value);
+      this.editor.chain().focus()[this.command()](value).run();
     }
   }
 };
