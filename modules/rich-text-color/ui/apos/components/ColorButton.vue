@@ -17,7 +17,7 @@
         'apos-has-selection': hasSelection
       }"
     >
-      <div class="text-color-component" v-if="editor">
+      <div v-if="editor" class="text-color-component">
         <AposInputWrapper
           :field="field"
           :error="effectiveError"
@@ -52,11 +52,18 @@
 </template>
 
 <script>
-import { ref, watch, defineComponent } from 'vue';
-import { useClickOutside } from '@vueuse/core';
+import { ref, watch, defineComponent, computed } from 'vue';
+import AposInputMixin from 'apostrophe/modules/@apostrophecms/schema/ui/apos/mixins/AposInputMixin';
+import AposInputWrapper from 'apostrophe/modules/@apostrophecms/schema/ui/apos/components/AposInputWrapper.vue';
+import AposSchema from 'apostrophe/modules/@apostrophecms/schema/ui/apos/components/AposSchema.vue';
 
 export default defineComponent({
   name: 'ColorButton',
+  components: {
+    AposInputWrapper,
+    AposSchema
+  },
+  mixins: [ AposInputMixin ],
   props: {
     name: {
       type: String,
@@ -69,6 +76,17 @@ export default defineComponent({
     tool: {
       type: Object,
       required: true
+    },
+    generation: {
+      type: Number,
+      required: false,
+      default() {
+        return null;
+      }
+    },
+    modelValue: {
+      type: Object,
+      required: true
     }
   },
   setup(props) {
@@ -77,11 +95,11 @@ export default defineComponent({
     const active = ref(false);
     const buttonActive = ref(false);
     const hasSelection = ref(false);
-    const field = ref({});
-    const effectiveError = ref(null);
-    const uid = ref(null);
-    const modifiers = ref([]);
-    const colorSchema = ref([
+    // const field = ref({});
+    // const effectiveError = ref(null);
+    // const uid = ref(null);
+    // const modifiers = ref([]);
+    const colorSchema = [
       {
         name: 'color',
         label: 'Color',
@@ -89,24 +107,23 @@ export default defineComponent({
         required: true,
         def: '#000000'
       }
-    ]);
-    const triggerValidation = ref(false);
-    const generation = ref(0);
-    const formModifiers = ref([]);
+    ];
+    // const triggerValidation = ref(false);
+    // const generation = ref(0);
+    // const formModifiers = ref([]);
 
     watch(() => props.editor, (newEditor) => {
-      const newColor = newEditor.getAttributes('textStyle').color;
-      if (newColor !== localColorValue.value) {
-        localColorValue.value = newColor || '#000000';
+      if (hasSelection.value) {
+        const newColor = newEditor.getAttributes('textStyle').color;
+        if (newColor !== localColorValue.value) {
+          localColorValue.value = newColor || '#000000';
+        }
       }
-    }, {
-      deep: true,
-      immediate: true
-    });
+    }, { deep: true, immediate: true });
 
-    const handleColorChange = ($event) => {
-      console.log('handleColorChange', command(), $event);
-      props.editor.chain().focus()[command()]($event).run();
+    const handleColorChange = (color) => {
+      console.log('handleColorChange', command(), color);
+      props.editor.chain().focus()[command()](color).run();
     };
 
     const command = () => {
@@ -123,8 +140,23 @@ export default defineComponent({
     const close = () => {
       active.value = false;
     };
+    const computedColor = computed(() => {
+      return props.editor.isActive('textStyle') ? convertToHex(props.editor.getAttributes('textStyle').color) : '#000000';
+    });
 
-    useClickOutside(close);
+    const convertToHex = (color) => {
+      const rgbPattern = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/;
+      const match = color.match(rgbPattern);
+
+      if (match) {
+        const r = parseInt(match[1]).toString(16).padStart(2, '0');
+        const g = parseInt(match[2]).toString(16).padStart(2, '0');
+        const b = parseInt(match[3]).toString(16).padStart(2, '0');
+        return `#${r}${g}${b}`.toUpperCase();
+      }
+
+      return color.toUpperCase();
+    };
 
     return {
       localColorValue,
@@ -132,18 +164,13 @@ export default defineComponent({
       active,
       buttonActive,
       hasSelection,
-      field,
-      effectiveError,
-      uid,
-      modifiers,
       colorSchema,
-      triggerValidation,
-      generation,
-      formModifiers,
       handleColorChange,
       command,
       takeAction,
-      close
+      close,
+      computedColor,
+      convertToHex
     };
   }
 });
