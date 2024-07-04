@@ -1,6 +1,6 @@
 {
   "name": "@bodonkey/rich-text-enhancement",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A set of extensions to add functionality to the rich-text-editor.",
   "main": "index.js",
   "scripts": {

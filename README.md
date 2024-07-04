@@ -3,8 +3,8 @@
 
   <h1>Rich Text Enhancement</h1>
   <p>
-    <a aria-label="Apostrophe logo" href="https://v3.docs.apostrophecms.org">
-      <img src="https://img.shields.io/badge/MADE%20FOR%20Apostrophe%203-000000.svg?style=for-the-badge&logo=Apostrophe&labelColor=6516dd">
+    <a aria-label="Apostrophe logo" href="https://docs.apostrophecms.org">
+      <img src="https://img.shields.io/badge/MADE%20FOR%20ApostropheCMS-000000.svg?style=for-the-badge&logo=Apostrophe&labelColor=6516dd">
     </a>
     <a aria-label="License" href="https://github.com/apostrophecms/module-template/blob/main/LICENSE.md">
       <img alt="" src="https://img.shields.io/static/v1?style=for-the-badge&labelColor=000000&label=License&message=MIT&color=3DA639">
@@ -29,7 +29,7 @@ Add the bundle and individual extensions in the `app.js` file:
 ```javascript
 require('apostrophe')({
   shortName: 'my-project',
-  bundle: [ '@bodonkey/rich-text-enhancement' ],
+  bundles: [ '@bodonkey/rich-text-enhancement' ],
   modules: {
     'rich-text-color': {},
     'rich-text-font': {}
